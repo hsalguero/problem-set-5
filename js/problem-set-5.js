@@ -26,10 +26,10 @@ function mario() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
- prompt("Enter height.")
- while(1<=height<==23){
-
- }
+while(true){
+ height=prompt("Enter height between 1 and 23.");
+ height=Number(height);
+if(height >= 1 && height <= 23 && Number.isInteger(height))
 document.getElementById("mario-easy-output").innerHTML=(height)
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -121,9 +121,9 @@ function credit() {
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
-   *       variable, do not modify it. If you find it necessary to manipulate
-   *       this value, you will need to create a second variable to serve
-   *       as a copy of the 'card' variable.
+   *       letiable, do not modify it. If you find it necessary to manipulate
+   *       this value, you will need to create a second letiable to serve
+   *       as a copy of the 'card' letiable.
    */
 
   ///////////////////////// DO NOT MODIFY
@@ -193,6 +193,15 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
+prompt("Enter windspeed.")
+if (windspeed >= 0) {
+  document.write("Your number (" + windspeed + ")  matches requirements", "");
+} else if (isNaN(windspeed)) {
+  promptForNumber("It is not a number. Please enter a number from 0 to Infinity", "");
+} else {
+  promptForNumber("Your number (" + windpseed + ") is not between 0 and Infinity", "");
+}
+
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
@@ -224,15 +233,15 @@ function gymnastics() {
   /////////////////// DO NOT MODIFY
 
   /*
-   * NOTE: The 'total' variable should be representative of the sum of all
+   * NOTE: The 'total' letiable should be representative of the sum of all
    *       six of the judges' scores.
    */
 
   /*
-   * NOTE: You need to add each score (valid or not) to the 'scores' variable.
+   * NOTE: You need to add each score (valid or not) to the 'scores' letiable.
    *       To do this, use the following syntax:
    *
-   *       scores.push(firstScore);   // your variable names for your scores
+   *       scores.push(firstScore);   // your letiable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
 
@@ -271,7 +280,7 @@ function reportCard() {
   ///////////////////////// DO NOT MODIFY
 
   /*
-   * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' variables
+   * NOTE: The 'testTotal', 'quizTotal', and 'homeworkTotal' letiables
    *       should be representative of the sum of the test scores, quiz
    *       scores, and homework scores the user enters, respectively.
    */
@@ -283,7 +292,7 @@ function reportCard() {
   ///////////////////// DO NOT MODIFY
 
   /*
-   * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
+   * NOTE: The 'tests', 'quizzes', and 'homeworks' letiables should be
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
