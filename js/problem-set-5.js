@@ -25,17 +25,29 @@ function mario() {
   ////////////// DO NOT MODIFY
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
-
-while(true){
- height=prompt("Enter height between 1 and 23.");
- height=Number(height);
-if(height >= 1 && height <= 23 && Number.isInteger(height))
-document.getElementById("mario-easy-output").innerHTML=(height)
+let block = "#";
+let space = "&nbsp;"
+let row = "";
+while(true) {
+  height = Number(prompt("Please enter a number between 1 and 23:"));
+  if(height >=1 && height <=23 && Number.isInteger(height)) {
+    for(let i=0; i<height; i++) {
+      for(let x=0; x<=(height-2-i); x++) {
+      row = row + space;
+    }
+    for(let y=0; y<=(1+i); y++) {
+        row = row + block;
+      }
+      row = row + "<br/>";
+    }
+    document.getElementById("mario-easy-output").innerHTML="<code>" + row + "</code>";
+    break;
+  }
+}
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
 }
-
 /*
  * Mario, Again. 10 points.
  *
@@ -64,7 +76,29 @@ function marioAgain() {
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 2 CODE HERE
+  let block = "#";
+  let space = "&nbsp;"
+  let row = "";
+  while(true) {
+    height = Number(prompt("Please enter a number between 1 and 23:"));
+    if(height >=1 && height <=23 && Number.isInteger(height)) {
+      for(let i=0; i<height; i++) {
+        for(let x=0; x<=(height-2-i); x++) {
+        row = row + space;
+      }
+      for(let y=0; y<=(1+i); y++) {
+          row = row + block;
+        }
+        row = row + space + space;
+        for(let v=0; v<=(1+i); v++) {
+          row = row + block;
+        }
+        row = row + "<br/>";
+      }
+      document.getElementById("mario-hard-output").innerHTML="<code>" + row + "</code>";
+      break;
+    }
+  }
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -193,14 +227,6 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
-prompt("Enter windspeed.")
-if (windspeed >= 0) {
-  document.write("Your number (" + windspeed + ")  matches requirements", "");
-} else if (isNaN(windspeed)) {
-  promptForNumber("It is not a number. Please enter a number from 0 to Infinity", "");
-} else {
-  promptForNumber("Your number (" + windpseed + ") is not between 0 and Infinity", "");
-}
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
