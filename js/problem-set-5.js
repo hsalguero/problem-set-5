@@ -190,8 +190,32 @@ function credit() {
 
 function guess() {
 
-  // WRITE YOUR EXERCISE 4 CODE HERE
-
+let attempts = 0;
+let random = Math.floor(Math.random()*999) + 1;
+let found = false;
+let userNumber;
+while (found == false) {
+  userNumber = Number(prompt("Guess a number between 1 and 1000."));
+  if(userNumber <= 1000 && userNumber >= 1 && Number.isInteger(userNumber)) {
+    if(userNumber > random) {
+      alert ("Too high. Try a smaller number.");
+      attempts+=1;
+    }
+    else if(userNumber < random) {
+      alert("Too low. Try a bigger number.");
+      attempts+=1;
+    }
+    else if (userNumber == random) {
+      alert("Correct!")
+      attempts+=1;
+      found = true;
+      document.getElementById("guess-output").innerHTML = "Number: " + random + "<br/>Attempts: " + attempts;
+    }
+  }
+  else {
+    continue;
+  }
+}
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -226,8 +250,36 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-
-
+while(true) {
+  windspeed = Number(prompt("Enter windspeed."));
+  if(windspeed >= 0 && Number.isInteger(windspeed)) {
+    if(windspeed >= 39 && windspeed <= 73) {
+      document.getElementById("hurricane-output").innerHTML="Tropical Storm."
+    }
+    if(windspeed >= 74 && windspeed <= 95) {
+      document.getElementById("hurricane-output").innerHTML="Category 1 Hurricane."
+    }
+    if(windspeed >= 96 && windspeed <= 110) {
+    document.getElementById("hurricane-output").innerHTML="Category 2 Hurricane."
+    }
+    if(windspeed >= 111 && windspeed <= 129) {
+      document.getElementById("hurricane-output").innerHTML="Category 3 Hurricane."
+    }
+    if(windspeed >= 130 && windspeed <= 156) {
+      document.getElementById("hurricane-output").innerHTML="Category 4 Hurricane."
+    }
+    if(windspeed >= 157) {
+      document.getElementById("hurricane-output").innerHTML="Category 5 Hurricane."
+    }
+    else if(windspeed <= 38) {
+      document.getElementById("hurricane-output").innerHTML="The skies are calm..."
+    }
+    break;
+  }
+  else {
+    continue;
+  }
+}
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
