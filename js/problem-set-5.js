@@ -151,7 +151,43 @@ function credit() {
   let card; // DO NOT MODIFY
   //////////// DO NOT MODIFY
 
-  // WRITE YOUR EXERCISE 3 CODE HERE
+  let oddSum=0;
+  let evenSum=0;
+  while (true){
+    card=prompt("Enter your credit card number: ");
+    if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
+      break;
+    }
+  }
+  for(let i=card.length-2;i>=0;i-=2) {
+    let num=Number(card[i])*2;
+    let strnum=num.toString();
+    let sum_num=0;
+    for (let j=0;j<strnum.length;j++){
+      sum_num=sum_num+Number(strnum[j]);
+    }
+    even=sum_num+evenSum;
+    console.log(even);
+  }
+  for(let k=card.length-1; k>=0;k-=2){
+    odd=oddSum+Number(card[k])
+  }
+  console.log(odd);
+
+  if (card.length==15 && (card[0]==3 &&(card[1]==7 || card[1]==4)) && (oddSum+evenSum)%10==0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
+  }
+  else if ((card.length==13 || card.length==16) && card[0]==4 && (oddSum+evenSum)%10==0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/visa.png'/>";
+  }
+  else if (card.length==16 && (card[0]==5 && (card[1]==1 || card[1]==2 || card[1]==4 || card[1]==5)) && (oddSum+evenSum)%10==0){
+    document.getElementById("credit-output").innerHTML="<img src ='./images/mastercard.png'/>";
+  }
+  else {
+    document.getElementById("credit-output").innerHTML="<img src ='./images/invalid.png'/>";
+  }
+
+  card=Number(card);
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
@@ -323,6 +359,24 @@ function gymnastics() {
    *       scores.push(secondScore);  // will likely be different than mine
    */
 
+  	let i=1;
+	while(i<=6){
+		let inputScore=Number(prompt("Enter your score"));
+		if (inputScore>=1 && inputScore<=10 && Number.isInteger(inputScore)){
+			scores.push(inputScore);
+		i++;
+		}
+	}
+	scores.sort(function(a,b){return a-b;})
+	let max=scores[5];
+	let min=scores[0];
+	let revisedScores=[];
+	for(let j=1;j<5;j++){
+		revisedScores.push(scores[j]);
+	}
+	let averageScore=((revisedScores[0]+revisedScores[1]+revisedScores[2]+revisedScores[3])/4).toFixed(2);
+	document.getElementById("gymnastics-output").innerHTML="Discarded: "+min+", "+max+"</br>Score: "+averageScore;
+  
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -375,6 +429,45 @@ function reportCard() {
    *       grades the user enters, respectively.
    */
 
+  let testsInput = prompt("Enter test score");
+   if (testsInput == -1) {
+   	}
+
+   if (Number(testsInput) >= 0 && Number(testsInput <= 100)) {
+   		testTotal = Number(testsInput) + testTotal;
+   		tests++;
+   }
+
+   while (true) {
+     let quizInput=prompt("Enter quiz score");
+     if (quizInput == -1){
+     }
+
+     if (Number(quizInput) >= 0 && Number(quizInput) <= 100) {
+       quizTotal = Number(quizInput) + quizTotal;
+       quizzes++;
+   		}
+    }
+
+    while (true) {
+      let homeworkInput = prompt("Enter homework score");
+      if (homeworkInput == -1){
+   		}
+
+      if (Number(homeworkInput) >= 0 && Number(homeworkInput) <= 100) {
+        homeworkTotal = Number(homeworkInput) + homeworkTotal;
+   			homeworks++;
+   		}
+   	}
+
+   	let testAverage = (testTotal / tests).toFixed(2);
+   	let quizAverage = (quizTotal / quizzes).toFixed(2);
+   	let homeworksAverage = (homeworkTotal / homeworks).toFixed(2);
+   	grade = (.6 * testAverage + .3 * quizAverage + .1 * homeworksAverage).toFixed(2);
+
+   	document.getElementById("report-card-output").innerHTML="Tests: "+testAverage+"</br>Quizzes: "+quizAverage+"</br>Homework: "+homeworksAverage+"</br>Grade: "+grade;
+
+  
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
